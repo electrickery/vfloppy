@@ -1,3 +1,7 @@
+# vfloppy
+
+Implementation of the Epson epsp-protocol for the PX-4 and PX-8 CP/M laptop computers
+
 <P ALIGN="CENTER"><IMG SRC="./vfloppyConsole.png"><IMG SRC="./vfreadDemo.png">
 <H2>Intro</H2>
 <P>Vfloppy is a disk simulator for the Epson PX-4 and PX-8. It uses the
@@ -47,3 +51,5 @@ source for both Linux and Windows, and both executables are included.</P>
 clean, portable code to support the serial port on both platforms. </P>
 
 <P>See for more info the web site http://electrickery.nl/comp/px4/vfloppy/</P>
+
+<P>The vfloppy code was previously located in https://github.com/electrickery/nonSound-vintage.</P>
