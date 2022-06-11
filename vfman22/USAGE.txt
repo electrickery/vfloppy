@@ -1,0 +1,55 @@
+USAGE of vf88man utilities version 2.1
+
+vf88man are utilities to manage D88 images for the Epson PX-8 and PX-4 emulator
+made by Toshiya TAKEDA (http://homepage3.nifty.com/takeda-toshiya/).
+
+The emulator allows reading and writing images from the emulator itself, but
+not from and to the file system. These utilities make this possible. Extra
+features are creating empty D88 images and erasing files from images. There is
+also a conversion tool to convert vfd images (used by vfloppy 1.x) to D88 images.
+
+Below the usage of the tools, but the definitive documentation is the c-source.
+
+Generic but optional argument for all tools:
+-d N    - with N a number between 1 and 4. This enables the debug printouts,
+          which are graded into function level. Mainly created for debugging
+          while writing, it might be useful or amusing for end users.
+
+vformat - vformat <imageName>
+          This utility creates a empty image file. The only argument is the
+          file name. An existing file will not be overwritten. This program
+          version is independent from the d88header.bin, which was needed by
+          the 2.0 version of vformat.
+
+vfread  - vfread <imageName> [<fileName>}
+          This utility has two modes; with one argument, this is interpreted
+          as an image name and a primitive directory is printed. Technically
+          the relevant information of each used directory extend is printed, so
+          files larger than 32 kByte will appear multiple times.
+          With two arguments, the second is interpreted as a filename which
+          should be read from the image (first argument). This filename is
+          restricted to the 8.3 format and may have no path information, or it
+          will be mangled, and the file will not be found. The created
+          filename will appear as typed in (at least with case sensitive file
+          systems).
+
+vfwrite - vfwrite <imageName> <fileName>
+          This utility will attempt to add a file to the image. Checks are made
+          on availability of free blocks and extends in the image (even
+          compensating for an existing copy of the file in the image, which
+          will be overwritten). The file name is restricted to the 8.3 format or
+          the name in the image will be mangled.
+
+vferase - vferase <imageName> <fileName>
+          By special request this utility was created to erase files from an
+          image. The fileName is case insensitive, but is restricted to 8.3
+          format.
+
+vfd2d88 - vfd2d88 <vfdImageName> <d88ImageName>
+          This utility converts a vfd format image to a d88 image. Ther are
+          probably not many of those outside my computer, but it was easy to
+          make and useful to me. The vfd format is used by the 1.x and 2.0
+          interim release of epspd TF-20 emulator, which allows connecting a
+          Linux machine to a real PX-4 or PX-8. 
+
+fjkraan, 2013-01-25
