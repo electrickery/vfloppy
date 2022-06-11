@@ -63,7 +63,7 @@ int main(int argc,char **argv) {
 	//blurp
 	if (pArgData->imageName == NULL || pArgData->fileName == NULL) {
 		msg(LOG_ERROR, "%s <imageName> <fileName>\n", argv[0]);
-		msg(LOG_ERROR, "vfwrite 2.1 (c)2010 F.J. Kraan\n");
+		msg(LOG_ERROR, "vfwrite 2.2 (c)2022 F.J. Kraan\n");
 		exit(1);
 	}
         // open image
@@ -79,7 +79,7 @@ int main(int argc,char **argv) {
 	fileData_t *pFileData = &fileData;
 	fileDataInit(pFileData);
         // check file in image
-	pFileData->fileName = (unsigned char*)pArgData->fileName;
+	pFileData->fileName = (unsigned char*)baseFileName(pArgData->fileName);
 	convertFileName(pFileData);
 	pFileData->fileSize = getFileSize(pFileData);
 	// check current file size in image

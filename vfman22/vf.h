@@ -125,6 +125,7 @@ void reformatFileName(unsigned char *pFileName, const unsigned char *pExtend);
 void printDirectory(FILE *imageFile);
 char setCharOnHibit(unsigned char testChar, char replaceChar);
 void convertFileName(fileData_t *pFileData);
+char* baseFileName(char *pFilename);
 void findFileExtends(FILE *imageFile, fileData_t *pFileData);
 void stripHighbit(unsigned char *fileName);
 void findFileBlocks(FILE *imageFile, fileData_t *pFileData);

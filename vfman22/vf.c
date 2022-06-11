@@ -155,7 +155,9 @@ void convertFileName(fileData_t *pFileData) {
 	// This is copied from the old code, but in need of serious refactoring. 
 	// To be combined with the support for files from other than the local directory
 	
-	/* conversie fileName dirFileName
+	//pFileData->fileName = (unsigned char*)strrchr((char*)pFileData->fileName, '/');  // remove everything before the last '/', including that '/'
+
+	/* conversion fileName dirFileName
 	   - to uppercase
 	   - add spaces to basename to 8 chars
 	   - remove dot
@@ -189,6 +191,15 @@ void convertFileName(fileData_t *pFileData) {
 	} 
 
 	if (debug > 1) printf(" convertFileName; filename: \'%s\'\n", pFileData->cpmFileName); 
+}
+
+char* baseFileName(char* pFilename) {
+	char *basename = strrchr(pFilename, '/');
+	if (basename) {
+		return ++basename;	// strrchr() leaves the last found char (here '/') in the response. It returns null when not found.
+	} else {
+	    return pFilename;
+	}
 }
 
 void findFileExtends(FILE *imageFile, fileData_t *pFileData) {
