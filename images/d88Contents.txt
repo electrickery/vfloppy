@@ -1,0 +1,310 @@
+arcs.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  UNARC.COM          0   4096
+0:  NULU.COM           0  14336
+0:  SQ.COM             0  15744
+0:  ARCHS.TXT          0    384
+0:  UNCR28.COM         0   8576
+0:  USQ.COM            0  12288
+0:  PMAUTOAE.COM       0  30976
+0:  ARK.COM            0   9088
+0:  PMARC.COM          0  10368
+0:  README.TXT         0   1536
+0:  ADDENDUM.DOC       0   5888
+0:  PMEXT.COM          0  12928
+0:  UNARK.COM          0   4736
+0:  DELBR.COM          0  12416
+62 blocks free, (126976 bytes). 50 directory entries free
+
+editor.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  EPSON.VDP          0    256
+0:  VDE266.DOC         0  32768
+0:  VDE266.QRF         0   2816
+0:  VDE266.UPD         0   2304
+0:  VDE266PX.COM       0  15488
+0:  VINST266.COM       0  10112
+0:  VDE266.DOC         1  19072
+0:  VINST266.DOC       0  26240
+0:  EDITPXST.COM       0   2048
+0:  EDITPXST.DOC       0  12288
+0:  DO.COM             0    768
+74 blocks free, (151552 bytes). 53 directory entries free
+
+extrautil.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  PXUTIL.COM         0   7168
+0:  DOALL.COM          0   4096
+0:  DOALL.INF          0   2176
+0:  DOSOFINE.COM       0   5376
+0:  MAPTST.COM         0  17536
+0:  DOSUPER.COM        0   2816
+0:  DOSUPER.INF        0   1792
+0:  U.COM              0   7168
+0:  N41.COM            0   4096
+0:  N41.DOC            0   4352
+107 blocks free, (219136 bytes). 54 directory entries free
+
+ms_m80_l80.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  M80.COM            0  20096
+0:  L80.COM            0  10752
+0:  MODEM.MAC          0   9984
+0:  MODEM.PRN          0  27392
+0:  MODEM.COM          0   1152
+0:  README.TXT         0    640
+102 blocks free, (208896 bytes). 58 directory entries free
+
+osrm-II.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  DUMPDPB.COM        0    768
+0:  II078.MAC          0  10624
+0:  II093.MAC          0   4480
+0:  II096.MAC          0   1920
+0:  II116.MAC          0   2432
+0:  II122.MAC          0   2944
+0:  II129.MAC          0   6912
+0:  II145.MAC          0  14976
+0:  II153.MAC          0   1792
+0:  II155.MAC          0  15616
+0:  II164.MAC          0   4096
+0:  II169.MAC          0   6784
+0:  II177.MAC          0   4992
+0:  II224.MAC          0   6784
+0:  II227.MAC          0   2688
+0:  II275.MAC          0   8832
+0:  II278.MAC          0  10240
+0:  II340.MAC          0  12032
+0:  II374.MAC          0  11648
+0:  II409.MAC          0  13312
+0:  II443.MAC          0  12672
+0:  II484.MAC          0  10752
+0:  II549.MAC          0   9728
+0:  II581.MAC          0   3968
+0:  III14_1.BAS        0    256
+0:  III14_2.BAS        0    256
+0:  III14_3.BAS        0    128
+0:  III14_4.BAS        0    256
+0:  III20_1.BAS        0    256
+0:  III33_1.BAS        0    512
+0:  III34_1.BAS        0    512
+0:  III41_1.BAS        0    256
+0:  III41_2.BAS        0    128
+0:  III41_3.BAS        0    256
+0:  III42_1.BAS        0    128
+0:  III42_2.BAS        0    128
+0:  III43_1.BAS        0    256
+0:  III43_2.BAS        0    128
+0:  III43_3.BAS        0    256
+0:  III45_1.BAS        0    384
+0:  PROGRAMS.TXT       0   1664
+0:  II581.REL          0    256
+0:  II581.COM          0    256
+0:  II409.REL          0    640
+0:  II409.COM          0    512
+0:  MEMDMP83.COM       0   1280
+0:  1MBREAD.COM        0    256
+0:  BSRS232C.COM       0    512
+15 blocks free, (30720 bytes). 16 directory entries free
+
+promprogs.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  PROMFO.TXT         0   6400
+0:  PROMFO.COM         0   6656
+0:  PXPROM2.COM        0  28672
+0:  PX-ROM.DOC         0   5120
+114 blocks free, (233472 bytes). 60 directory entries free
+
+px4UtilityDisk.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  ASM.COM            0   8192
+0:  LOAD.COM           0   1792
+0:  DDT.COM            0   4864
+0:  DUMP.COM           0    512
+0:  PIP.COM            0   7424
+0:  STAT.COM           0   5248
+0:  SUBMIT.COM         0   1280
+0:  XSUB.COM           0    768
+0:  ED.COM             0   6656
+0:  CTRLP.COM          0    256
+0:  DEXSUB.COM         0    128
+0:  COPYDISK.COM       0   6784
+0:  TERM.COM           0   4736
+0:  FILINK.COM         0   3072
+0:  CONFIG.COM         0   8576
+101 blocks free, (206848 bytes). 49 directory entries free
+
+px4utils.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  XSUB.COM           0    768
+0:  WSX.DOC            0  11648
+0:  WSX.COM            0   1920
+0:  TERM.COM           0   4736
+0:  SUBMIT.COM         0   1280
+0:  STAT.COM           0   5248
+0:  ASM.COM            0   8192
+0:  CONFIG.COM         0   8576
+0:  CTRLP.COM          0    256
+0:  DEBUG.COM          0  10496
+0:  DEXSUB.COM         0    128
+0:  DUMP.COM           0    512
+0:  ED.COM             0   6656
+0:  FILINK.COM         0   3072
+0:  LOAD.COM           0   1792
+0:  PIP.COM            0   7424
+0:  COPYDISK.COM       0   6784
+91 blocks free, (186368 bytes). 47 directory entries free
+
+px4wand.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  WAND.LBR           0  32768
+0:  WAND.LBR           1  25984
+0:  PX4WAND.COM        0   9216
+0:  SCREEN.001         0    768
+0:  SCREEN.002         0    768
+0:  SCREEN.003         0    768
+0:  SCREEN.004         0    768
+0:  SCREEN.005         0    768
+0:  SCREEN.006         0    768
+0:  SCREEN.007         0    768
+0:  SCREEN.008         0    768
+0:  SCREEN.009         0    768
+0:  SCREEN.010         0    768
+0:  SCREEN.011         0    768
+0:  SCREEN.012         0    768
+0:  SCREEN.013         0    768
+0:  SCREEN.014         0    768
+0:  SCREEN.015         0    768
+0:  SCREEN.016         0    768
+0:  SCREEN.017         0    768
+0:  SCREEN.018         0    768
+0:  SCREEN.019         0    768
+0:  SCREEN.020         0    768
+0:  SCREEN.021         0    768
+0:  SCREEN.022         0    768
+0:  SCREEN.023         0    768
+0:  SCREEN.024         0    768
+0:  SCREEN.025         0    768
+0:  SCREEN.026         0    768
+0:  SCREEN.027         0    768
+0:  SCREEN.028         0    768
+0:  SCREEN.029         0    768
+0:  SCREEN.030         0    768
+0:  SCREEN.031         0    768
+0:  SCREEN.032         0    768
+0:  SCREEN.033         0    768
+0:  SCREEN.034         0    768
+0:  SCREEN.035         0    768
+0:  SCREEN.036         0    768
+0:  SCREEN.037         0    768
+0:  SCREEN.038         0    768
+0:  SCREEN.039         0    768
+0:  SCREEN.040         0    768
+0:  SCREEN.041         0    768
+0:  SCREEN.042         0    768
+0:  SCREEN.043         0    768
+0:  SCREEN.044         0    768
+0:  SCREEN.045         0    768
+0:  SCREEN.046         0    768
+0:  SCREEN.047         0    768
+0:  SCREEN.048         0    768
+0:  SCREEN.049         0    768
+0:  SCREEN.050         0    768
+0:  SCREEN.051         0    768
+0:  SCREEN.052         0    768
+0:  SCREEN.053         0    768
+0:  SCREEN.054         0    768
+0:  SCREEN.055         0    768
+0:  SCREEN.056         0    768
+0:  SCREEN.057         0    768
+0:  SCREEN.058         0    768
+0:  SCREEN.059         0    768
+0:  SCREEN.060         0    768
+0:  SCREEN.061         0    128
+44 blocks free, (90112 bytes). 0 directory entries free
+
+px8_eps-tf20.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  ASM.COM            0   8192
+0:  BATTERY.COM        0    128
+0:  BIO.BAS            0   7936
+0:  COPYDISK.COM       0   6784
+0:  CTRLP.COM          0    256
+0:  D.COM              0   1536
+0:  DDT.COM            0   4864
+0:  DEXSUB.COM         0    128
+0:  DISK.COM           0   5632
+0:  DISK.DOC           0   1664
+0:  DU.COM             0   6144
+0:  DU-V87.DQC         0   7808
+0:  DU-V87.HQP         0   4096
+0:  DUMP.COM           0    512
+0:  ED.COM             0   6656
+0:  LISTER.BAS         0   1920
+0:  LOAD.COM           0   1792
+0:  MARQUEE.BAS        0   2432
+0:  NSWP.COM           0  15360
+0:  NSWP.DQC           0  19712
+0:  NULU.COM           0  14336
+0:  NULU.HQP           0  16512
+0:  NULU15.DQC         0  32768
+0:  NULU15.DQC         1   1536
+0:  PG.COM             0   5376
+0:  PIP.COM            0   7424
+0:  SD.COM             0   3712
+0:  SD-78.DQC          0   6656
+0:  SD-78.IQF          0   1152
+0:  STAT.COM           0   5248
+0:  SUBMIT.COM         0   1280
+0:  UNARC.COM          0   4096
+0:  UNARC.DZC          0  12288
+0:  UNARC.HZS          0   4992
+0:  UNCR.COM           0   5248
+0:  UNCR.HLP           0   1920
+0:  UNERA.COM          0   1024
+0:  UNERA30.DOC        0   3328
+0:  USQ.COM            0   2048
+0:  WASH.COM           0   2944
+0:  WASH15.DQC         0   9984
+0:  XSUB.COM           0    768
+2 blocks free, (4096 bytes). 22 directory entries free
+
+px8games.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  SNAKE.COM          0  13184
+0:  TANK.COM           0  18176
+0:  TOWER.COM          0  14464
+0:  ZONE.COM           0  16896
+0:  SPSHUT.BAS         0   4864
+0:  SPSHUT.DOC         0   2432
+101 blocks free, (206848 bytes). 58 directory entries free
+
+PX_forth.d88:
+usr filename    flags ext  size
+--  ------------  ---  -  -----
+0:  CONPRTIO.FTH       0   2304
+0:  %DISC.DOC          0   1024
+0:  DISCIO.FTH         0   5376
+0:  EDITOR.DOC         0   2432
+0:  SCREENS.FRT        0  32768
+0:  SCREENS.FRT        1  26624
+0:  STARTUP.FRT        0   8192
+0:  Z80FORTH.COM       0   6656
+0:  Z80FORTH.UPD       0   2048
+0:  Z80FORTH.Z80       0  32768
+0:  Z80FORTH.Z80       1  21632
+0:  FORTH.COM          0   6400
+0:  FORTH.DOC          0   5760
+59 blocks free, (120832 bytes). 51 directory entries free
+
