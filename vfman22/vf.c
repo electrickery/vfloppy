@@ -153,10 +153,7 @@ char setCharOnHibit(unsigned char testChar, char replaceChar) {
 
 void convertFileName(fileData_t *pFileData) {
 	// This is copied from the old code, but in need of serious refactoring. 
-	// To be combined with the support for files from other than the local directory
 	
-	//pFileData->fileName = (unsigned char*)strrchr((char*)pFileData->fileName, '/');  // remove everything before the last '/', including that '/'
-
 	/* conversion fileName dirFileName
 	   - to uppercase
 	   - add spaces to basename to 8 chars
@@ -217,7 +214,7 @@ void findFileExtends(FILE *imageFile, fileData_t *pFileData) {
 		
 		readDisk((char *)extend, extendLocation, EXTEND, imageFile);	
 		
-		if (extend[0] != FORMATPATTERN) {
+		if (extend[0] != FORMATPATTERN) { // Content found in extend is not 0xE5
 			memcpy(&foundFilename, &extend[FILENAMEBASE], 11);
 			stripHighbit(foundFilename);
 			if (strcmp((const char *)foundFilename, (const char *)pFileData->cpmFileName) == 0) {
@@ -229,7 +226,9 @@ void findFileExtends(FILE *imageFile, fileData_t *pFileData) {
  	}
 		
 	msg(LOG_DEBUG, " findFileExtends; found extends ");
-	if (pFileData->extends[i] != -1) msg(LOG_DEBUG, "%X: %X, ", i, pFileData->extends[i]);
+        for (i = 0; i < DIRECTORYEXTENDS; i++) {
+                if (pFileData->extends[i] != -1) msg(LOG_DEBUG, "Idx: 0x%X; Ext.No:0x%X, ", i, pFileData->extends[i]);
+        }
 	msg(LOG_DEBUG, "\n");
 }
 

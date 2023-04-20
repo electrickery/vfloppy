@@ -18,34 +18,77 @@ epspdv3.c: main()
     --
   epspdv3.c:session();
     logger.c:msg();
+      -
     epspProtocol.c:waitForEOT();
-      epspRead();
+      epspCode.c:epspRead();
+        logger.c:msg();
+          -
+        logger.c:getLogLevel()
+          -
     epspProtocol.c:recENQBlock();
       logger.c:msg();
+        -
       epspCode.c:epspRead();
+        logger.c:msg();
+          -
+        logger.c:getLogLevel()
+          -
       epspCode.c:enableInteraction();
+        -
       epspCode.c:disableInteraction();
+        -
     epspProtocol.c:sendACK();
       epspCode.c:epspWrite();
+        logger.c:getLogLevel()
+          -
       logger.c:msg();
+        -
     epspProtocol.c:sendNAK();
       epspCode.c:epspWrite();
+        logger.c:msg();
+          -
+        logger.c:getLogLevel()
+          -
       logger.c:msg();
+        -
     epspProtocol.c:recHeaderBlock();
       epspCode.c:epspRead();
+        logger.c:msg();
+          -
+        logger.c:getLogLevel()
+          -
       protocolHandler.recHeaderBlockProcessingFunc();
     epspProtocol.c:recTextBlock();
       epspCode.c:epspRead();
+        logger.c:msg();
+          -
+        logger.c:getLogLevel()
+          -
       logger.c:msg();
+        -
       epspCode.c:sumChars();
+        -
       protocolHandler.recTextBlockFunc();
     epspProtocol.c:waitForEOT();
       epspCode.c:epspRead();
+        logger.c:msg();
+          -
+        logger.c:getLogLevel()
+          -
       logger.c:msg();      
+        -
     epspProtocol.c:sendTextBlock();
       protocolHandler.composeSendTextBlock();
       epspCode.c:epspWrite();
+        logger.c:msg();
+          -
+        logger.c:getLogLevel()
     epspProtocol.c:sendEOT();
       epspCode.c:epspWrite();
+        logger.c:msg();
+          -
+        logger.c:getLogLevel()
+          -
       logger.c:msg();
+        -
     

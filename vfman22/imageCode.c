@@ -53,10 +53,10 @@ int createImageIndex(FILE *readFile) {
     
     readDisk((char *)header, location, sizeof(D88Header_t), readFile);
     memcpy(imageName, header, D88_HEADER_NAME_SIZE);
-    msg(LOG_TRACE, "  createImageIndex; image name: '%s'\n", imageName);
-    msg(LOG_TRACE, "  createImageIndex; image protect & type:  %02X %02X\n", 
+    msg(LOG_DEBUG, "  createImageIndex; image name: '%s'\n", imageName);
+    msg(LOG_DEBUG, "  createImageIndex; image protect & type:  %02X %02X\n", 
             (unsigned char)header->protect, (unsigned char)header->type);
-    msg(LOG_TRACE, "  createImageIndex; image size:  %07X\n", 
+    msg(LOG_DEBUG, "  createImageIndex; image size:  %07X\n", 
             valueComposer(header->size.addrLLSB, header->size.addrLSB, 
             header->size.addrMSB, header->size.addrMMSB));
     
@@ -67,7 +67,12 @@ int createImageIndex(FILE *readFile) {
         msg(LOG_TRACE, "  createImageIndex; track/side start location at: %07X\n", location);
 //        result = imageRead(fileDescriptor, (unsigned char *)sectorHeader, location, sizeof(D88SectorHeader_t));
         result = readDisk((char *)sectorHeader, location, sizeof(D88SectorHeader_t), readFile);
-        if (result != 1) break;
+        if (result != 1) {
+                msg(LOG_ERROR,"  createImageIndex; readDisk result not 1 but %d", result);
+                break;
+        } else {
+                msg(LOG_DEBUG,"  createImageIndex; readDisk result OK");
+        }
         imageIndex[sectorCount].track  = sectorHeader->track;
         imageIndex[sectorCount].side   = sectorHeader->side;
         imageIndex[sectorCount].sector = sectorHeader->sector;
@@ -105,19 +110,20 @@ unsigned long int getSectorLocation(int track, int record) {
         diskSector = (record / 2) - D88_SECTORS_PER_SIDE + 1;
         side = 1;
     }
-    diskSectorHalf = record & 1;
+    diskSectorHalf = record % 2;        // 0 = first, 1 = second half
 
-    msg(LOG_DEBUG, "   getSectorLocation2; Track %d, Record: %d > Side: %d, Sector: %d, %s half",
+    msg(LOG_DEBUG, "   getSectorLocation; Track %d, Record: %d > Side: %d, Sector: %d, %s half",
             track, record, side, diskSector, (diskSectorHalf) ? "second" : "first");
     for (i = 0; i < D88_MAX_SECTORS; i++) {       
         if (imageIndex[i].track == track && imageIndex[i].side == side && imageIndex[i].sector == diskSector) {
-            msg(LOG_TRACE, "  Location: %05X @ index: %d", imageIndex[i].sectorLocation, i);
+            msg(LOG_DEBUG, "   getSectorLocation;  Location: %05X @ index: %d", imageIndex[i].sectorLocation, i);
             location = imageIndex[i].sectorLocation + (diskSectorHalf ? CPMLOGICALSECTORSIZE : 0);
             break;
         }
     }
     msg(LOG_DEBUG, "\n");
-    if (location == 0) msg(LOG_ERROR, "   getSectorLocation2; record location not found. Track: %d, Record: %d, Sector: %d, Side: %d\n", 
+    if (location == 0) msg(LOG_ERROR, \
+        "   getSectorLocation; record location not found. Track: %d, Record: %d, Sector: %d, Side: %d\n", 
             track, record, diskSector, side);
     return location;
 }
@@ -142,20 +148,19 @@ int getSideFromBlock(int block) {
 }
 
 long int getDirExtendLocation (int count) {
-//    msg(LOG_ERROR, "  getDirExtendLocation; \n");
-    int record = count / (SECTOR / EXTEND) * 2;
-    int extendOffset = (count % (SECTOR / EXTEND)) * EXTEND;
-    long int mySectorLocation2 = getSectorLocation(DIRTRACK, record);
-    long int myLocation2 = mySectorLocation2 + extendOffset;
+//    int record = count / (SECTOR / EXTEND);
+//    int extendOffset = (count % (SECTOR / EXTEND)) * EXTEND;
+//    long int mySectorLocation2 = getSectorLocation(DIRTRACK, record);
+//    long int myLocation2 = mySectorLocation2 + extendOffset;
     
     long int myLocation = (SECTORBASE + SECTORHEADER + (DIRTRACK * TRACK * HEADS)) + 	// base offset
 		count * EXTEND +					// per extend offset
 		(count / (SECTOR / EXTEND)) * SECTORHEADER;		// per sector offset
     
-    if (myLocation != myLocation2) {
-        msg(LOG_ERROR, "  getDirExtendLocation; count: %d, track: %d, record: %d, ext: %02X > %05X, %05X\n",
-            count, DIRTRACK, record, count, myLocation, myLocation2);
-    }
+//    if (myLocation != myLocation2) {
+//        msg(LOG_ERROR, "  getDirExtendLocation; count: %d, track: %d, record: %d, ext: %02X > %05X, %05X\n",
+//            count, DIRTRACK, record, count, myLocation, myLocation2);
+//    }
     return myLocation;
 }
 
@@ -295,7 +300,7 @@ FILE *openFileRO(char *imageName) {
 	} else {
 		result = fseek (imageFile , 0 , SEEK_END);
 		lSize = ftell (imageFile);
-		msg(LOG_DEBUG, " openImageRO; returned: %d. File is %d bytes (0x%X)\n", result, lSize, lSize);
+		msg(LOG_DEBUG, " openFileRO; returns: %d. File is %d bytes (0x%X)\n", result, lSize, lSize);
 	}
 	return imageFile;
 }

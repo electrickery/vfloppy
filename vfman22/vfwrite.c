@@ -66,18 +66,21 @@ int main(int argc,char **argv) {
 		msg(LOG_ERROR, "vfwrite 2.2 (c)2022 F.J. Kraan\n");
 		exit(1);
 	}
+        
         // open image
 	if (checkFileExistance(pArgData->imageName) == 0) {
 		msg(LOG_WARN, "Image '%s' not found, exiting.\n", argv[1]);
 	}
 	char *imageName = pArgData->imageName;
 	FILE *imageFile = openImageRW(imageName);
+        
         // check file in file system
 	if (checkFileExistance(pArgData->fileName) == 0) {
 		msg(LOG_WARN, "File '%s' not found, exiting.\n", argv[2]);
 	}
 	fileData_t *pFileData = &fileData;
 	fileDataInit(pFileData);
+        
         // check file in image
 	pFileData->fileName = (unsigned char*)baseFileName(pArgData->fileName);
 	convertFileName(pFileData);
@@ -108,17 +111,20 @@ int main(int argc,char **argv) {
 		       netBlocks, netExtends);
 		exit(2);
 	}
-        // erase the corrent file in the image
+        
+        // erase the current file in the image
 	if (pFileData->found == 1) {
 		msg(LOG_DEBUG, "main; imageFile: %p, pFileData: %p\n", imageFile, pFileData);
 		eraseFile(imageFile, pFileData);
 	}
+        
         // write file data and directory data to image
 	fileDataInit(pFileData);
 	convertFileName(pFileData);  // reinstates CP/M filename in pFileData->cpmFileName
 	findUnusedBlocksExtends(imageFile, pFileData);
 	writeDirectory(imageFile, pFileData);
 	writeFile(imageFile, pFileData);
+        
         // 
 	fclose(imageFile);		// close image
 	fclose(pFileData->file);	// close file

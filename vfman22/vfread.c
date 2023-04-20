@@ -42,7 +42,7 @@
 #include "vf.h"
 #include "logger.h"
 
-int debug = 0;
+int debug = 2;
 
 // file data instance
 fileData_t fileData; 
@@ -64,10 +64,10 @@ int main(int argc,char **argv) {
 	debug = pArgData->debug;
         setLogLevel(pArgData->debug);
 		
-	if (pArgData->imageName == NULL)
+	if (pArgData->imageName == NULL) // No image name means print usage and exit
 	{
                 msg(LOG_ERROR, "%s <imageName> [<fileName>]\n", argv[0]);
-                msg(LOG_ERROR, "vfread 2.1 (c)2013 F.J. Kraan\n");
+                msg(LOG_ERROR, "vfread 2.3 (c)2023 F.J. Kraan\n");
 		exit(1);
 	}
 
@@ -75,14 +75,14 @@ int main(int argc,char **argv) {
 	pImageData->fileName = pArgData->imageName;
 	pImageData->file = 0;
 	
-	if (checkFileExistance(pImageData->fileName) == 0) 
+	if (checkFileExistance(pImageData->fileName) == 0) // Non-existing image means exit
 	{
 		msg(LOG_ERROR, " %s does not exists, exiting\n",
                         pImageData->fileName);
 		exit(1);
 	}	
 	
-	if (pArgData->fileName == NULL)
+	if (pArgData->fileName == NULL) // No 2nd arguments means print directory
 	{
 		msg(LOG_DEBUG, "main; directory mode: reading %s\n",
                         pImageData->fileName);
@@ -100,13 +100,13 @@ int main(int argc,char **argv) {
 		
 		exit(0);
 	}
-	if (checkFileExistance(pArgData->fileName) == 1) 
+	if (checkFileExistance(pArgData->fileName) == 1) // no overwiting files
 	{
 		fprintf(stderr," %s already exists, exiting\n", argv[2]);
 		exit(1);
 	}
 	
-	// Convenient pointerized alias
+	// Being here means exporting a file from the image
 	fileData_t *pFileData = &fileData;
 	fileDataInit(pFileData);
 	
@@ -117,7 +117,7 @@ int main(int argc,char **argv) {
 	
 	convertFileName(pFileData);
 	
-	pImageData->file = openFileRO(pImageData->fileName);
+	pImageData->file = openImageRO(pImageData->fileName);
 	
 	findFileExtends(pImageData->file, pFileData);
 	
