@@ -68,10 +68,10 @@ int createImageIndex(FILE *readFile) {
 //        result = imageRead(fileDescriptor, (unsigned char *)sectorHeader, location, sizeof(D88SectorHeader_t));
         result = readDisk((char *)sectorHeader, location, sizeof(D88SectorHeader_t), readFile);
         if (result != 1) {
-                msg(LOG_ERROR,"  createImageIndex; readDisk result not 1 but %d", result);
+                msg(LOG_ERROR,"  createImageIndex; readDisk result not 1 but %d\n", result);
                 break;
         } else {
-                msg(LOG_DEBUG,"  createImageIndex; readDisk result OK");
+                msg(LOG_DEBUG,"  createImageIndex; readDisk result OK\n");
         }
         imageIndex[sectorCount].track  = sectorHeader->track;
         imageIndex[sectorCount].side   = sectorHeader->side;

@@ -2,7 +2,7 @@ SRCS=vf.c logger.c imageCode.c
 OBJS=$(SRCS:.c=.o)
 CFLAGS=-DDEBUG=0 -Wall
 
-all: vfread vfwrite vformat vferase vfd2d88
+all: vfread vfwrite vformat vferase vfd2d88 img2d88
 
 vfread: vfread.o $(OBJS)
 	$(CC) -o vfread vfread.o $(OBJS) $(LDFLAGS) $(CFLAGS)
@@ -18,6 +18,9 @@ vferase: vferase.o $(OBJS)
 
 vfd2d88: vfd2d88.o $(OBJS) 
 	$(CC) -o vfd2d88 vfd2d88.o $(OBJS) $(LDFLAGS) $(CFLAGS)
+	
+img2d88: img2d88.o $(OBJS) 
+	$(CC) -o img2d88 img2d88.o $(OBJS) $(LDFLAGS) $(CFLAGS)
 	
 depend: $(SRCS)
 	for i in $(SRCS);do $(CC) -MM $(CPPFLAGS) $$i;done > .depend
