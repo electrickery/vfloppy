@@ -124,8 +124,14 @@ int main(int argc,char **argv) {
 	findUnusedBlocksExtends(imageFile, pFileData);
 	writeDirectory(imageFile, pFileData);
 	writeFile(imageFile, pFileData);
+
+        // report space left
+        int newFreeBlocks = getFreeBlockCount(imageFile);
+        int newFreeExtends = getFreeDirectorySpace(imageFile);
+        msg(LOG_INFO, "%d blocks free, (%d bytes). %d directory entries free\n", 
+               newFreeBlocks, freeBlocks * BLOCK, newFreeExtends);
         
-        // 
+        // closing
 	fclose(imageFile);		// close image
 	fclose(pFileData->file);	// close file
 	return 0;
