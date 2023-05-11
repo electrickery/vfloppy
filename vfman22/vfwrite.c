@@ -129,7 +129,7 @@ int main(int argc,char **argv) {
         int newFreeBlocks = getFreeBlockCount(imageFile);
         int newFreeExtends = getFreeDirectorySpace(imageFile);
         msg(LOG_INFO, "%d blocks free, (%d bytes). %d directory entries free\n", 
-               newFreeBlocks, freeBlocks * BLOCK, newFreeExtends);
+               newFreeBlocks, newFreeBlocks, newFreeExtends);
         
         // closing
 	fclose(imageFile);		// close image
