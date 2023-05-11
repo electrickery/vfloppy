@@ -117,6 +117,7 @@ void printDirectory(FILE *imageFile) {
 	fileName[12] = 0;
         unsigned char *pFileName = &fileName[0];
         unsigned char *pExtend = &extend[0];
+        unsigned char user;
         
         msg(LOG_INFO, "usr filename    flags ext  size\n");
         msg(LOG_INFO, "--  ------------  ---  -  -----\n");
@@ -125,7 +126,8 @@ void printDirectory(FILE *imageFile) {
 		msg(LOG_DEBUG," printDirectory; reading at %lX\n", extendLocation);
 		
 		readDisk((char *)extend, extendLocation, EXTEND, imageFile);
-		if (extend[0] != FORMATPATTERN) {
+                user = extend[0];
+		if (user != FORMATPATTERN) {
 /*
 			memcpy(&fileName[0], &extend[1], 8);
 			memcpy(&fileName[9], &extend[9], 3);
@@ -135,8 +137,8 @@ void printDirectory(FILE *imageFile) {
 			fileName[SYSTEMFILEBIT] &= 0x7F;
 			fileName[ARCHIVEBIT]    &= 0x7F;
 			fileSize = extend[EXTENDRECORDS] * RECORD + (extend[EXTENDNO] & 1) * (1<<14);
-			msg(LOG_ERROR, "%d:  %s  %c%c%c  %d  %5d\n", 
-			       extend[0], 
+			msg(LOG_INFO, "%d:  %s  %c%c%c  %d  %5d\n", 
+			       user, 
 			       fileName, 
 			       setCharOnHibit(extend[READONLYBIT],   'r'), 
 			       setCharOnHibit(extend[SYSTEMFILEBIT], 's'), 
