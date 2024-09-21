@@ -446,7 +446,7 @@ void sendHeaderBlock(int epsp_port) {
         cmdMsg[4] = driveParam.command;
         msg(LOG_DEBUG, "  sendHeaderBlock; FNC is %s\n", label[(int)driveParam.command]);
 	driveParam.returnCode = 0; /* setting default */
-        if (driveParam.drive) {
+        if (driveParam.drive > 0) {
             /* check for actually mounted image */
 	    int fd = driveInfo.drive_fd[getDriveId()];
 	    if (fd == -1) {
